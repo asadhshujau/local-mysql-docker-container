@@ -3,11 +3,11 @@ services:
     container_name: mysqlserverviii
     image: mysql:8.4
     ports:
-      - 3306:3306
+      - '${MYSQL_8_PORT:-3306}:3306'
     environment:
-      MYSQL_USER: shuja
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: ${MYSQL_8_USER:-shuja}
+      MYSQL_PASSWORD: ${MYSQL_8_PASSWORD:-secret}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_8_ROOT_PASSWORD:-secret}
     volumes:
       - ./mysql8:/var/lib/mysql
     networks:
@@ -20,11 +20,11 @@ services:
         soft: 1048576
         hard: 1048576
     ports:
-      - 33060:3306
+      - '${MYSQL_5_PORT:-33060}:3306'
     environment:
-      MYSQL_USER: shuja
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: ${MYSQL_5_USER:-shuja}
+      MYSQL_PASSWORD: ${MYSQL_5_PASSWORD:-secret}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_5_ROOT_PASSWORD:-secret}
     volumes:
       - ./mysql5:/var/lib/mysql
     networks:
