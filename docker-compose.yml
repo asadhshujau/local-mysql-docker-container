@@ -1,6 +1,7 @@
 services:
   mysqlserverviii:
     container_name: mysqlserverviii
+    restart: unless-stopped
     image: mysql:8.4
     ports:
       - '${MYSQL_8_PORT:-3306}:3306'
@@ -14,6 +15,7 @@ services:
       - database
   mysqlserverv:
     container_name: mysqlserverv
+    restart: unless-stopped
     image: mysql:5.7
     ulimits:
       nofile: # Fix memory leak issue on some systems when LimitCORE=infinity (containerd)
