@@ -97,3 +97,15 @@ DB_PASSWORD=secret
 
   2014_10_12_000000_create_users_table ................................................................................................... 86ms DONE
 ```
+
+# Import and Export Database
+
+Dump database from docker MySQL container
+```
+docker exec -i container_name mysqldump -uUSERNAME -p DBNAME > where/to/dump.sql
+```
+
+Import database to docker MySQL container
+```
+docker exec -i container_name mysql -uUSERNAME -pPASSWORD DBNAME < db.sql
+```
